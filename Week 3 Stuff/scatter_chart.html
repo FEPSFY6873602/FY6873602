@@ -13,9 +13,7 @@
             google.charts.setOnLoadCallback(drawChart);
 
             function drawChart(){
-                var data = google.visualization.arrayToDataTable();
-
-                data.addRows([
+                var data = google.visualization.arrayToDataTable([
                     ['Age', 'Salary'],
                     [25, 40000],
                     [30, 50000],
