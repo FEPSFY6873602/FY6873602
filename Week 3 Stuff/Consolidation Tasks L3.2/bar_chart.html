@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Daily Activities</title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    </head>
+
+    <body>
+        <div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+        <script type="text/javascript">
+            google.charts.load('current', {'packages' : ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart(){
+                var data = google.visualization.arrayToDataTable([
+                    ['City', 'Population'],
+                    ['London', 9648000],
+                    ['Birmingham', 1153900],
+                    ['Edinburgh', 554000]
+                ]);
+
+                var options = {
+                    title: 'Cities and Populations',
+                    hAxis: {title: 'Population'},
+                    vAxis: {title: 'city'},
+                    series: {
+                    0: {color: '#CCCCFF'}
+                    }
+                };
+
+                var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+        </script>
+    </body>
+</html>
