@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Daily Activities</title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    </head>
+
+    <body>
+        <div id="chart_div" style="width: 1200px; height: 600px;"></div>
+
+        <script type="text/javascript">
+            google.charts.load('current', {'packages' : ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart(){
+                var data = google.visualization.arrayToDataTable([
+                    ['Month', 'Sales (in GBP)', {role: 'style'}],
+                    ['Janurary', 25000, 'Blue'],
+                    ['February', 32000, 'Red'],
+                    ['March', 12000, 'Green'],
+                    ['April', 12340, 'Yellow'],
+                    ['May', 13000, 'Black'],
+                    ['June', 15000, 'Pink'],
+                    ['July', 19000, 'Orange'],
+                    ['August', 20000, 'Purple'],
+                    ['September', 25000, 'Grey'],
+                    ['October', 22000, '#CCCCFF'],
+                    ['November', 17000, '#33fff9'],
+                    ['December', 30000, '#2775a4']
+                ]);
+
+                var options = {
+                    title: 'Monthly Sales in 2023',
+                    hAxis: {title: 'Month'},
+                    vAxis: {title: 'Sales (in GBP)'},
+                    legend: 'none'
+                };
+
+                var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+        </script>
+    </body>
+</html>
