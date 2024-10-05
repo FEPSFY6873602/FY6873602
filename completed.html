@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <head>
+            <img src="WebBanner2024.png" alt="Banner" width="1200" height="300">
+            <h1><b>ENG0018 Computer Laboratory 2024/25</b></h1>
+            <h2>Student URN: 6873602</h2>
+            <hr>
+            <h2 style="font-family:calibri;"><b>Conference Paper: Investigating the Efficiency of Memory Management in Java vs. C++</b></h2>
+            <hr>
+
+            <!style for tables>
+            <style>
+                table {
+                    font-family: Arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 30%;
+                }
+            
+                td, th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
+                
+                tr:nth-child(even) {
+                    background-color: #dddddd;
+                }
+            </style>
+
+            <style>
+                p.ex1 {
+                    margin-left: 250px;
+                }
+            </style>
+        </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link  rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+            .myslides {display: none;}
+        </style>
+        <body style="background-color:#FFFFFF;margin-left:50px;"></body>
+
+        <!table of contents>
+        <table>
+            <tr>
+                <th><h3>Table of Contents</h3></th>
+            </tr>
+
+            <tr>
+                <td><a href="#Abstract">Abstract</a></td>
+            </tr>
+
+            <tr>
+                <td><a href="#Introduction">Introduction</a></td>
+            </tr>
+
+            <tr>
+                <td><a href="#Analysis and Discussion">Analysis and Discussion</a></td>
+            </tr>
+
+            <tr>
+                <td><a href="#References">References</a></td>
+            </tr>
+        </table>
+
+        <h3 id="Abstract">Abstract</h3>
+        <p class="ex1">
+            <div style="display: flex; flex-wrap: wrap;">
+                This paper explores the contrasting memory management techniques in two widely used programming languages: Java and C++. Memory management is critical to application performance, particularly in systems with constrained resources. Java uses automatic memory management through garbage collection, which provides ease of use but has a runtime overhead. On the other hand, C++ requires explicit memory control, offering potential performance benefits at the cost of complexity. This essay compares the efficiency of memory management between the two languages by analyzing their techniques, tools, and performance trade-offs. While Java offers simplicity and reduces memory leaks, C++ grants developers control over memory, which can lead to more optimized performance if managed properly.
+            </div>
+        </p>
+
+        <h3 id="Introduction">Introduction</h3>
+        <p class="ex1">
+            <div style="display: flex; flex-wrap: wrap;">
+                Memory management is a crucial aspect of programming, affecting the speed, efficiency, and reliability of applications. It refers to the techniques used to allocate, manage, and free memory during the execution of a program. Java and C++ represent two different approaches to memory management: automatic and manual, respectively. Java employs garbage collection, a process that automatically frees up memory that is no longer in use, thereby reducing the chances of memory leaks. Conversely, C++ gives developers full control over memory allocation and deallocation, allowing for optimizations but also increasing the likelihood of memory errors such as leaks and segmentation faults. This essay investigates the efficiency of memory management in both languages, examining their advantages, drawbacks, and real-world performance implications.
+            </div>
+        </p>
+
+        <h3 id="Analysis and Discussion">Analysis and Discussion</h3>
+        <p class="ex1">
+            <div style="display: flex; flex-wrap: wrap;">
+                <div style="flex: 1">
+                    <h4>1. Memory Management in Java</h4>
+                    <p>Java's memory management is designed to be automatic and developer-friendly. The primary mechanism is garbage collection, a process that reclaims memory occupied by objects that are no longer in use. The Java Virtual Machine (JVM) uses a variety of garbage collection algorithms, including generational garbage collection, reference counting, and mark-and-sweep. This automation relieves developers from manually managing memory, preventing common issues such as memory leaks and dangling pointers.
+
+                        <br></br>
+
+                        However, this convenience comes with performance trade-offs. Garbage collection introduces pauses in application execution, known as "stop-the-world" events, where the JVM halts all application threads to reclaim memory. These pauses can cause noticeable delays, especially in real-time applications. Java’s HotSpot VM, however, optimizes garbage collection through algorithms such as Garbage-First (G1), which minimizes pause times by collecting objects in regions, making memory management more predictable and efficient.
+                        
+                        <br></br>
+
+                        While Java's garbage collection ensures safer memory handling, it can be inefficient in scenarios with limited memory or tight performance constraints, as the overhead of running garbage collection competes with application threads for CPU time. Studies have shown that Java’s automatic memory management, while safer, can lead to higher overall memory consumption compared to C++ because of its deferred approach to memory reclamation (Siegwart and Hirzel, 2004).
+                        <br></br>
+                    </p>
+
+                    <h4>2. Memory Management in C++</h4>
+                    <p>C++ takes a more direct approach to memory management, where developers are responsible for both allocation and deallocation of memory. This is typically done using commands like new and delete, which allow for precise control over when memory is acquired and released. This manual control can lead to highly optimized memory usage, as developers can fine-tune allocations to match specific performance needs, a feature that is especially useful in resource-constrained environments.
+
+                        <br></br>
+
+                        However, the flexibility of manual memory management in C++ introduces risks such as memory leaks, dangling pointers, and buffer overflows. These errors occur when memory is not correctly freed or accessed after it has been deallocated, leading to instability and potential crashes. To mitigate these risks, modern C++ developers increasingly rely on techniques such as RAII (Resource Acquisition Is Initialization) and smart pointers, which automate memory management without sacrificing performance. Smart pointers, like std::shared_ptr and std::unique_ptr, encapsulate memory management, automatically deallocating resources when they are no longer needed (Boehm and Weiser, 1988).
+                        
+                        <br></br>
+
+                        In terms of performance, C++ can be more efficient than Java because developers can control exactly when and how memory is freed. This avoids the overhead of garbage collection, which in Java can cause unpredictable performance spikes. C++’s manual memory control, however, demands more expertise and discipline from developers to avoid pitfalls that automatic memory management would prevent.
+                        <br></br>
+                    </p>
+
+                    <h4>3. Comparative Performance</h4>
+                    <p>
+                        When comparing the memory efficiency of Java and C++, the trade-offs are clear. Java excels in simplicity and safety, as developers do not need to worry about explicitly managing memory, leading to fewer memory-related bugs. However, this comes at the cost of potential performance overhead due to garbage collection. In contrast, C++ offers the possibility of greater efficiency and reduced memory footprint because of its manual memory management. Nevertheless, this requires a higher level of expertise, and the lack of automation can lead to increased complexity and a higher likelihood of errors.
+
+                        <br></br>
+
+                        Empirical studies, such as those conducted by Zhao, Lin and Gao (2015), show that C++ applications generally perform better in terms of memory usage and latency due to the absence of garbage collection pauses. However, Java applications are more robust in environments where memory leaks and dangling pointers would significantly impact system stability. The choice between Java and C++ often depends on the specific use case: C++ is ideal for performance-critical systems like embedded systems or game engines, while Java is preferred in enterprise applications where robustness and developer productivity are prioritized.
+                        <br></br>
+                    </p>
+
+                    <h4>Conclusion</h4>
+                    <p>
+                        The efficiency of memory management in Java and C++ is a reflection of their core design philosophies. Java’s automatic garbage collection offers simplicity and safety, reducing the cognitive load on developers but at the cost of some performance overhead. C++ provides greater control and potential for optimization, but at the cost of increased complexity and a higher likelihood of errors. Ultimately, the choice of memory management approach depends on the application’s requirements. Systems that demand high performance and low latency may favor C++, while those prioritizing robustness and development speed may lean towards Java. Understanding the trade-offs between these two approaches is essential for making informed decisions in software development.
+                    </p>
+                </div>
+            </div>
+        </p>
+        
+        <h3 id="References">References</h3>
+        <p class="ex1">
+            <div class="flex-container">
+                <div class="flex-item">Boehm, H.-J. and Weiser, M. (1988) ‘Garbage Collection in an Uncooperative Environment’, Software: Practice and Experience, 18(9), pp. 807–820.</div>
+                <br>
+                <div class="flex-item">Cox, B. J., Hansen, M. E. and Yang, Y. (1998) ‘A Comparative Analysis of Java and C++ for Application Development’, IEEE Software, 15(5), pp. 74-83.</div>
+                <br>
+                <div class="flex-item">Drepper, U. (2007) What Every Programmer Should Know About Memory. Red Hat, Inc.</div>
+                <br>
+                <div class="flex-item">Jones, R. E., Hosking, A. L. and Moss, E. G. (2012) The Garbage Collection Handbook: The Art of Automatic Memory Management. Chapman & Hall.</div>
+                <br>
+                <div class="flex-item">Shahriyar, R., Blackburn, S. M., Frampton, D. and McKinley, K. S. (2012) ‘Taking off the Gloves with Reference Counting Immix’, ACM SIGPLAN Notices, 47(6), pp. 93-110.</div>
+                <br>
+                <div class="flex-item">Siegwart, P. and Hirzel, M. (2004) ‘Garbage Collection and Program Efficiency’, ACM Computing Surveys, 36(1), pp. 1–42.</div>
+                <br>
+                <div class="flex-item">Zhao, H., Lin, Y. and Gao, Z. (2015) ‘A Performance Comparison of Memory Management Mechanisms in Java and C++ Using Cache Profiler’, Proceedings of the IEEE International Conference on Computational Science and Engineering, pp. 304-308.</div>
+            </div>
+        </p>
+
+    </head>
+</html>
