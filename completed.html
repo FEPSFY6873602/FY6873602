@@ -67,61 +67,68 @@
 
         <h3 id="Abstract">Abstract</h3>
         <p class="ex1">
-            <div style="display: flex; flex-wrap: wrap;">
-                This paper explores the contrasting memory management techniques in two widely used programming languages: Java and C++. Memory management is critical to application performance, particularly in systems with constrained resources. Java uses automatic memory management through garbage collection, which provides ease of use but has a runtime overhead. On the other hand, C++ requires explicit memory control, offering potential performance benefits at the cost of complexity. This essay compares the efficiency of memory management between the two languages by analyzing their techniques, tools, and performance trade-offs. While Java offers simplicity and reduces memory leaks, C++ grants developers control over memory, which can lead to more optimized performance if managed properly.
+            <div id="Abstract_Text" style="display: flex; flex-wrap: wrap;">
+                This article explores the contrasting memory management techniques in two widely used programming languages: Java and C++. Memory management is critical to application performance, particularly in systems with constrained resources. Java uses automatic memory management through garbage collection, which provides ease of use but has a runtime overhead. On the other hand, C++ requires explicit memory control, offering potential performance benefits at the cost of complexity. While Java offers simplicity and reduces memory leaks, C++ grants developers control over memory, which can lead to more optimised performance if managed properly. This essay compares the efficiency of memory management between the two languages by analysing their techniques, tools, and performance trade-offs.
             </div>
         </p>
 
         <h3 id="Introduction">Introduction</h3>
         <p class="ex1">
-            <div style="display: flex; flex-wrap: wrap;">
-                Memory management is a crucial aspect of programming, affecting the speed, efficiency, and reliability of applications. It refers to the techniques used to allocate, manage, and free memory during the execution of a program. Java and C++ represent two different approaches to memory management: automatic and manual, respectively. Java employs garbage collection, a process that automatically frees up memory that is no longer in use, thereby reducing the chances of memory leaks. Conversely, C++ gives developers full control over memory allocation and deallocation, allowing for optimizations but also increasing the likelihood of memory errors such as leaks and segmentation faults. This essay investigates the efficiency of memory management in both languages, examining their advantages, drawbacks, and real-world performance implications.
+            <div id="Introduction_Text" style="display: flex; flex-wrap: wrap;">
+                Memory management is a fundamental aspect of programming, influencing the speed, efficiency, and reliability of applications. It involves the techniques and processes used to allocate, manage, and free memory during the execution of a program. Java and C++ represent two distinct approaches to memory management: automatic and manual, respectively. Java uses automatic garbage collection, a process where the system reclaims memory from objects that are no longer in use. In contrast, C++ gives developers full control over memory allocation and deallocation, allowing for optimisations but also raising the potential for memory-related errors. While Java’s garbage collection reduces the risk of memory leaks and simplifies development, C++ offers greater control that can lead to more optimised performance, though it comes at the cost of increased complexity and a higher likelihood of mistakes. This article compares the memory management systems in Java and C++ by evaluating their techniques, the advantages and disadvantages of each approach, and how these methods impact performance.
             </div>
         </p>
 
         <h3 id="Analysis and Discussion">Analysis and Discussion</h3>
         <p class="ex1">
-            <div style="display: flex; flex-wrap: wrap;">
+            <div id="Analysis_and_Discussion_Text" style="display: flex; flex-wrap: wrap;">
                 <div style="flex: 1">
                     <h4>1. Memory Management in Java</h4>
-                    <p>Java's memory management is designed to be automatic and developer-friendly. The primary mechanism is garbage collection, a process that reclaims memory occupied by objects that are no longer in use. The Java Virtual Machine (JVM) uses a variety of garbage collection algorithms, including generational garbage collection, reference counting, and mark-and-sweep. This automation relieves developers from manually managing memory, preventing common issues such as memory leaks and dangling pointers.
+                    <p>Java’s memory management system is designed to be automatic, offering a high level of abstraction that shields developers from the complexity of manual memory handling. The cornerstone of Java’s memory management is its garbage collection (GC) mechanism, which automatically reclaims memory occupied by objects that are no longer in use. Garbage collection works by identifying objects that are no longer reachable by any part of the program and removing them, thereby freeing up memory for reuse.
 
                         <br></br>
 
-                        However, this convenience comes with performance trade-offs. Garbage collection introduces pauses in application execution, known as "stop-the-world" events, where the JVM halts all application threads to reclaim memory. These pauses can cause noticeable delays, especially in real-time applications. Java’s HotSpot VM, however, optimizes garbage collection through algorithms such as Garbage-First (G1), which minimizes pause times by collecting objects in regions, making memory management more predictable and efficient.
+                        The Java Virtual Machine (JVM) employs a variety of garbage collection algorithms, including generational garbage collection, reference counting, and mark-and-sweep (Jones, Hosking, and Moss, 2012). Generational garbage collection, for example, divides objects into generations based on their age, which allows the system to collect short-lived objects more efficiently. Java's garbage collection process prevents issues like dangling pointers and memory leaks that can occur in languages with manual memory management. Furthermore, modern garbage collectors like Garbage-First (G1), Shenandoah, and ZGC have been developed to minimise performance trade-offs. These collectors aim to reduce the latency caused by garbage collection pauses, known as “stop-the-world” events, by collecting memory in parallel or incrementally (Beronić et al., 2022).
                         
                         <br></br>
 
-                        While Java's garbage collection ensures safer memory handling, it can be inefficient in scenarios with limited memory or tight performance constraints, as the overhead of running garbage collection competes with application threads for CPU time. Studies have shown that Java’s automatic memory management, while safer, can lead to higher overall memory consumption compared to C++ because of its deferred approach to memory reclamation (Siegwart and Hirzel, 2004).
+                        However, while garbage collection offers substantial benefits in terms of safety and ease of use, it is not without its performance costs. The presence of stop-the-world events introduces latency that can disrupt the smooth execution of applications, particularly in time-sensitive systems. For example, in real-time applications like video games or high-frequency trading platforms, these pauses can lead to noticeable delays and performance degradation (Henriques and Bernardino, 2018). Additionally, garbage collection can lead to higher overall memory consumption, as the JVM may not release memory as efficiently as a manually controlled system would. The deferred approach to memory reclamation in Java sometimes results in the system holding onto more memory than necessary, impacting applications running on constrained environments, such as embedded systems or resource-limited devices (Drepper, 2007). 
+
                         <br></br>
                     </p>
 
                     <h4>2. Memory Management in C++</h4>
-                    <p>C++ takes a more direct approach to memory management, where developers are responsible for both allocation and deallocation of memory. This is typically done using commands like new and delete, which allow for precise control over when memory is acquired and released. This manual control can lead to highly optimized memory usage, as developers can fine-tune allocations to match specific performance needs, a feature that is especially useful in resource-constrained environments.
+                    <p>In contrast to Java, C++ adopts a manual approach to memory management. Developers are directly responsible for allocating and deallocating memory, typically using operators like new and delete. This gives C++ programmers fine-grained control over memory usage, allowing them to optimise performance and manage resources based on the specific needs of their applications. For example, developers can allocate memory only when it is needed, deallocate it immediately after use, and reuse memory in ways that might be impossible with Java’s automatic garbage collection.
 
                         <br></br>
 
-                        However, the flexibility of manual memory management in C++ introduces risks such as memory leaks, dangling pointers, and buffer overflows. These errors occur when memory is not correctly freed or accessed after it has been deallocated, leading to instability and potential crashes. To mitigate these risks, modern C++ developers increasingly rely on techniques such as RAII (Resource Acquisition Is Initialization) and smart pointers, which automate memory management without sacrificing performance. Smart pointers, like std::shared_ptr and std::unique_ptr, encapsulate memory management, automatically deallocating resources when they are no longer needed (Boehm and Weiser, 1988).
+                        The main advantage of C++’s manual memory management lies in its potential for high-performance applications. Since there is no garbage collector running in the background, there are no interruptions or pauses in the application’s execution. C++ applications can achieve superior memory utilisation and lower latency by fine-tuning memory allocations. This control is especially valuable in performance-critical systems like video games, real-time simulations, and embedded devices (Henriques and Bernardino, 2018). Furthermore, hardware-level optimisations available in C++ allow for direct interactions with the system’s memory and CPU, making it ideal for applications that require maximum performance (Drepper, 2007).
                         
                         <br></br>
 
-                        In terms of performance, C++ can be more efficient than Java because developers can control exactly when and how memory is freed. This avoids the overhead of garbage collection, which in Java can cause unpredictable performance spikes. C++’s manual memory control, however, demands more expertise and discipline from developers to avoid pitfalls that automatic memory management would prevent.
+                        However, the trade-off of this control is that manual memory management introduces several risks. Developers must explicitly allocate and deallocate memory, and any failure to do so correctly can result in memory leaks, dangling pointers, or segmentation faults. These issues are difficult to debug and can lead to unstable or inefficient applications. To mitigate these risks, modern C++ features like smart pointers (std::shared_ptr, std::unique_ptr) and Resource Acquisition Is Initialization (RAII) patterns have been introduced. These tools automate certain aspects of memory management, providing a level of safety without sacrificing performance (Drepper, 2007). Nevertheless, the complexity of C++ memory management remains a challenge for many developers, especially those working on large-scale systems.
+
                         <br></br>
                     </p>
 
                     <h4>3. Comparative Performance</h4>
-                    <p>
-                        When comparing the memory efficiency of Java and C++, the trade-offs are clear. Java excels in simplicity and safety, as developers do not need to worry about explicitly managing memory, leading to fewer memory-related bugs. However, this comes at the cost of potential performance overhead due to garbage collection. In contrast, C++ offers the possibility of greater efficiency and reduced memory footprint because of its manual memory management. Nevertheless, this requires a higher level of expertise, and the lack of automation can lead to increased complexity and a higher likelihood of errors.
+                    <p>When comparing Java and C++, several trade-offs emerge. Java’s garbage collection system offers significant advantages in terms of developer productivity and ease of use. The automatic memory management system helps prevent common issues such as memory leaks and dangling pointers, reducing the likelihood of bugs and improving software reliability. However, this ease of use comes at the cost of performance. Garbage collection can introduce pauses in the application’s execution, leading to latency that can be particularly problematic in time-sensitive applications. Furthermore, the JVM’s abstraction of hardware resources results in lower performance compared to C++, which can interact more directly with the underlying hardware (Henriques and Bernardino, 2018).
+                        
 
                         <br></br>
 
-                        Empirical studies, such as those conducted by Zhao, Lin and Gao (2015), show that C++ applications generally perform better in terms of memory usage and latency due to the absence of garbage collection pauses. However, Java applications are more robust in environments where memory leaks and dangling pointers would significantly impact system stability. The choice between Java and C++ often depends on the specific use case: C++ is ideal for performance-critical systems like embedded systems or game engines, while Java is preferred in enterprise applications where robustness and developer productivity are prioritized.
+                        C++, on the other hand, offers more precise control over memory, which can lead to better performance, particularly in resource-constrained environments. The absence of garbage collection interruptions means that C++ applications can achieve lower latency and more efficient memory usage. However, this control also comes with increased complexity, as developers must manually manage memory and ensure that all allocations and deallocations are handled correctly. The risks associated with manual memory management, such as memory leaks and segmentation faults, can lead to stability issues and harder-to-maintain codebases.
+                        
+                        <br></br>
+
+                        The decision between Java and C++ depends largely on the requirements of the specific application. For applications where development speed, safety, and robustness are paramount—such as enterprise software, web applications, or mobile apps—Java is often the preferred choice. Its automatic garbage collection and higher-level abstractions make it easier for developers to build reliable software quickly. Conversely, for performance-critical systems such as embedded devices, high-performance games, or real-time simulations, C++ is often favoured for its ability to optimise memory usage and processing speed, despite the added complexity.
+
                         <br></br>
                     </p>
 
                     <h4>Conclusion</h4>
                     <p>
-                        The efficiency of memory management in Java and C++ is a reflection of their core design philosophies. Java’s automatic garbage collection offers simplicity and safety, reducing the cognitive load on developers but at the cost of some performance overhead. C++ provides greater control and potential for optimization, but at the cost of increased complexity and a higher likelihood of errors. Ultimately, the choice of memory management approach depends on the application’s requirements. Systems that demand high performance and low latency may favor C++, while those prioritizing robustness and development speed may lean towards Java. Understanding the trade-offs between these two approaches is essential for making informed decisions in software development.
+                        The efficiency of memory management in Java and C++ reflects their core design philosophies. Java’s automatic garbage collection system provides simplicity and safety, helping to prevent common memory issues such as leaks and dangling pointers. However, this ease of use comes with performance trade-offs, particularly with respect to garbage collection pauses and higher overall memory consumption. C++, by contrast, offers fine-grained control over memory management, enabling developers to optimise memory usage and minimise latency. However, this control also comes with risks, as improper memory management can lead to severe issues such as memory leaks or crashes. Understanding the trade-offs between the two systems is essential for choosing the right language based on the specific needs of the application.
                     </p>
                 </div>
             </div>
@@ -129,75 +136,114 @@
         
         <h3 id="References">References</h3>
         <p class="ex1">
-            <div class="flex-container">
-                <div class="flex-item">Boehm, H.-J. and Weiser, M. (1988) ‘Garbage Collection in an Uncooperative Environment’, Software: Practice and Experience, 18(9), pp. 807–820.</div>
+            <div id="References_Text" class="flex-container">
+                <div class="flex-item">
+                    <a href="https://research.google/pubs/garbage-collection-in-an-uncooperative-environment/">Boehm, H.-J. and Weiser, M. (1988) ‘Garbage Collection in an Uncooperative Environment’, Software: Practice and Experience, 18(9), pp. 807–820.</a>
+                </div>
                 <br>
-                <div class="flex-item">Cox, B. J., Hansen, M. E. and Yang, Y. (1998) ‘A Comparative Analysis of Java and C++ for Application Development’, IEEE Software, 15(5), pp. 74-83.</div>
+                <div class="flex-item">
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9803445">Beronić, D., Novosel, N., Mihaljević, B. and Radovan, A. (2022). Assessing Contemporary Automated Memory Management in Java – Garbage First, Shenandoah, and Z Garbage Collectors Comparison.</a>
+                </div>
                 <br>
-                <div class="flex-item">Drepper, U. (2007) What Every Programmer Should Know About Memory. Red Hat, Inc.</div>
+                <div class="flex-item">
+                    <a href="https://people.freebsd.org/~lstewart/articles/cpumemory.pdf">Drepper, U. (2007) What Every Programmer Should Know About Memory</a>
+                </div>
                 <br>
-                <div class="flex-item">Jones, R. E., Hosking, A. L. and Moss, E. G. (2012) The Garbage Collection Handbook: The Art of Automatic Memory Management. Chapman & Hall.</div>
+                <div class="flex-item">
+                    <a href="https://www.taylorfrancis.com/books/mono/10.1201/9781315388021/garbage-collection-handbook-richard-jones-antony-hosking-eliot-moss">Jones, R. E., Hosking, A. L. and Moss, E. G. (2012) The Garbage Collection Handbook: The Art of Automatic Memory Management. Chapman & Hall.</a>
+                </div>
                 <br>
-                <div class="flex-item">Shahriyar, R., Blackburn, S. M., Frampton, D. and McKinley, K. S. (2012) ‘Taking off the Gloves with Reference Counting Immix’, ACM SIGPLAN Notices, 47(6), pp. 93-110.</div>
+                <div class="flex-item">
+                    <a href="https://dl-acm-org.surrey.idm.oclc.org/doi/pdf/10.1145/2544173.2509527">Shahriyar, R., Blackburn, S. M., Frampton, D. and McKinley, K. S. (2012) ‘Taking off the Gloves with Reference Counting Immix’, ACM SIGPLAN Notices, 47(6), pp. 93-110.</a>
+                </div>
                 <br>
-                <div class="flex-item">Siegwart, P. and Hirzel, M. (2004) ‘Garbage Collection and Program Efficiency’, ACM Computing Surveys, 36(1), pp. 1–42.</div>
-                <br>
-                <div class="flex-item">Zhao, H., Lin, Y. and Gao, Z. (2015) ‘A Performance Comparison of Memory Management Mechanisms in Java and C++ Using Cache Profiler’, Proceedings of the IEEE International Conference on Computational Science and Engineering, pp. 304-308.</div>
+                <div class="flex-item">
+                    <a href="https://aisel.aisnet.org/cgi/viewcontent.cgi?article=1009&context=capsi2018">Henriques, L. and Bernardino, J. (2018) ‘Performance of Memory Deallocation in C++, C# and Java’, CAPSI 2018 Proceedings.</a>
+                </div>
             </div>
         </p>
 
     </head>
     
-    <div id="last-updated">Loading Last Update Time...</div>
-
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- Last commit time display -->
+    <div id="last-updated">Loading last update time...</div>
     <!-- Verify Button -->
     <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
         Verify Last Modified Time
     </button>
-    
     <script>
         async function getLastUpdatedTime() {
             const username = "FEPSFY6873602";
             const repo = "FY6873602";
-
+        
             const url = `https://api.github.com/repos/${username}/${repo}/commits`;
-
             try {
                 const response = await fetch(url, {
-                    method: "GET",
+                    method: 'GET',
                     headers: {
-                        "Accept": "application/vnd.github.v3+json",
+                        'Accept': 'application/vnd.github.v3+json',
                     }
                 });
-
                 if (!response.ok) {
                     throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
                 }
-
                 const commits = await response.json();
-
                 if (commits && commits.length > 0) {
                     const lastCommitDate = new Date(commits[0].commit.committer.date);
-
+                
                     // Displaying the time on load
-                    document.getElementById("last-updated").innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+                    document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
                 } else {
-                    document.getElementById("last-updated").innerText = "No commits found in the repository.";
+                    document.getElementById('last-updated').innerText = 'No commits found in the repository.';
                 }
             } catch (error) {
-                console.error("Error fetching the last updated time:", error);
-                document.getElementById("last-updated").innerText = "Error fetching update time. Please check the repository details.";
+                console.error('Error fetching the last updated time:', error);
+                document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
             }
         }
-
         // Function to verify the last update time by re-fetching it from the API
         async function verifyLastUpdatedTime() {
-            document.getElementById("last-updated").innerText = "Verifying...";
+            document.getElementById('last-updated').innerText = 'Verifying...';
             await getLastUpdatedTime();
             alert("Last modified time has been successfully verified from GitHub API.");
         }
-
         // Initial load to display the time on page load
         window.onload = getLastUpdatedTime;
     </script>
+
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////// Word count function ////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- Placeholder for total word count -->
+    <p id="totalWordCount"></p>
+    <hr>
+    <script>
+        // Function to calculate and display word count for a specified section
+        function displayWordCount(sectionId, outputId) {
+            // Get the text content from the specified section
+            const text = document.getElementById(sectionId).textContent;
+            // Split text into words based on spaces and filter out any empty strings
+            const wordArray = text.trim().split(/\s+/);
+            // Count the words
+            const wordCount = wordArray.length;
+            // Return the word count for summing purposes
+            return wordCount;
+        }
+        // Function to calculate and display total word count from selected sections
+        function displayTotalWordCount() {
+            // Calculate word count for each section and accumulate the total
+            const IntroductionCount = displayWordCount("Introduction_Text");
+            const AnalysisCount = displayWordCount("Analysis_and_Discussion_Text");
+            // Calculate the sum of all selected sections
+            const totalWordCount = IntroductionCount + AnalysisCount;
+            // Display the total word count
+            document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+        }
+        // Run the function for specific sections and display total count when the page loads
+        window.onload = displayTotalWordCount;
+    </script>
 </html>
+
