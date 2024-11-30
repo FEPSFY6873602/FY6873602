@@ -7,31 +7,55 @@
             <h1><b>ENG0018 Computer Laboratory 2024/25</b></h1>
             <h2>Student URN: 6873602</h2>
             <hr>
-            <h2 style="font-family:calibri;"><b>Conference Paper: Investigating the Efficiency of Memory Management in Java vs. C++</b></h2>
+            <h2 style="font-family:monospace;"><b>Conference Paper: Investigating the Efficiency of Memory Management in Java vs. C++</b></h2>
             <hr>
 
             <!style for tables>
             <style>
                 table {
-                    font-family: Arial, sans-serif;
+                    font-family: monospace;
                     border-collapse: collapse;
-                    width: 30%;
+                    width: 60%;
+                    margin: left;
+                    background-color: #e6f2ff;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
                 }
-            
-                td, th {
-                    border: 1px solid #dddddd;
-                    text-align: left;
+
+                th {
+                    background-color: #007bff;
+                    font-family: monospace;
+                    color: white;
+                    padding: 10px;
+                }
+
+                td {
                     padding: 8px;
+                    font-family: monospace;
+                    border: 1px solid #d6e9f5;
+                    text-align: left;
                 }
-                
+
                 tr:nth-child(even) {
-                    background-color: #dddddd;
+                    background-color: #f0f8ff;
                 }
             </style>
 
             <style>
-                p.ex1 {
-                    margin-left: 250px;
+                h1, h2, h3, h4{
+                    font-family: monospace;
+                    color: #003366;
+                    text-align: left;
+                }
+
+                p, a {
+                    font-family: monospace;
+                    font: 300;
+                    font-size: larger;
+                    color: #004080;
+                    line-height: 1.6;
+                    text-align: left;
                 }
             </style>
         </head>
@@ -40,7 +64,7 @@
         <style>
             .myslides {display: none;}
         </style>
-        <body style="background-color:#FFFFFF;margin-left:50px;"></body>
+        <body style="background-color:#f0f8ff; margin-left:50px;"></body>
 
         <!table of contents>
         <table>
@@ -66,21 +90,25 @@
         </table>
 
         <h3 id="Abstract">Abstract</h3>
-        <p class="ex1">
+        <p>
             <div id="Abstract_Text" style="display: flex; flex-wrap: wrap;">
-                This article explores the contrasting memory management techniques in two widely used programming languages: Java and C++. Memory management is critical to application performance, particularly in systems with constrained resources. Java uses automatic memory management through garbage collection, which provides ease of use but has a runtime overhead. On the other hand, C++ requires explicit memory control, offering potential performance benefits at the cost of complexity. While Java offers simplicity and reduces memory leaks, C++ grants developers control over memory, which can lead to more optimised performance if managed properly. This essay compares the efficiency of memory management between the two languages by analysing their techniques, tools, and performance trade-offs.
+                <p>
+                    This article explores the contrasting memory management techniques in two widely used programming languages: Java and C++. Memory management is critical to application performance, particularly in systems with constrained resources. Java uses automatic memory management through garbage collection, which provides ease of use but has a runtime overhead. On the other hand, C++ requires explicit memory control, offering potential performance benefits at the cost of complexity. While Java offers simplicity and reduces memory leaks, C++ grants developers control over memory, which can lead to more optimised performance if managed properly. This essay compares the efficiency of memory management between the two languages by analysing their techniques, tools, and performance trade-offs.
+                </p>
             </div>
         </p>
 
         <h3 id="Introduction">Introduction</h3>
-        <p class="ex1">
+        <p>
             <div id="Introduction_Text" style="display: flex; flex-wrap: wrap;">
-                Memory management is a fundamental aspect of programming, influencing the speed, efficiency, and reliability of applications. It involves the techniques and processes used to allocate, manage, and free memory during the execution of a program. Java and C++ represent two distinct approaches to memory management: automatic and manual, respectively. Java uses automatic garbage collection, a process where the system reclaims memory from objects that are no longer in use. In contrast, C++ gives developers full control over memory allocation and deallocation, allowing for optimisations but also raising the potential for memory-related errors. While Java’s garbage collection reduces the risk of memory leaks and simplifies development, C++ offers greater control that can lead to more optimised performance, though it comes at the cost of increased complexity and a higher likelihood of mistakes. This article compares the memory management systems in Java and C++ by evaluating their techniques, the advantages and disadvantages of each approach, and how these methods impact performance.
+                <p>
+                    Memory management is a fundamental aspect of programming, influencing the speed, efficiency, and reliability of applications. It involves the techniques and processes used to allocate, manage, and free memory during the execution of a program. Java and C++ represent two distinct approaches to memory management: automatic and manual, respectively. Java uses automatic garbage collection, a process where the system reclaims memory from objects that are no longer in use. In contrast, C++ gives developers full control over memory allocation and deallocation, allowing for optimisations but also raising the potential for memory-related errors. While Java’s garbage collection reduces the risk of memory leaks and simplifies development, C++ offers greater control that can lead to more optimised performance, though it comes at the cost of increased complexity and a higher likelihood of mistakes. This article compares the memory management systems in Java and C++ by evaluating their techniques, the advantages and disadvantages of each approach, and how these methods impact performance.
+                </p>
             </div>
         </p>
 
         <h3 id="Analysis and Discussion">Analysis and Discussion</h3>
-        <p class="ex1">
+        <p>
             <div id="Analysis_and_Discussion_Text" style="display: flex; flex-wrap: wrap;">
                 <div style="flex: 1">
                     <h4>1. Memory Management in Java</h4>
@@ -135,7 +163,7 @@
         </p>
         
         <h3 id="References">References</h3>
-        <p class="ex1">
+        <p>
             <div id="References_Text" class="flex-container">
                 <div class="flex-item">
                     <a href="https://research.google/pubs/garbage-collection-in-an-uncooperative-environment/">Boehm, H.-J. and Weiser, M. (1988) ‘Garbage Collection in an Uncooperative Environment’, Software: Practice and Experience, 18(9), pp. 807–820.</a>
@@ -162,18 +190,49 @@
                 </div>
             </div>
         </p>
-
     </head>
     
     <!-- //////////////////////////////////////////////////////////////////////////////// -->
     <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
     <!-- //////////////////////////////////////////////////////////////////////////////// -->
     <!-- Last commit time display -->
-    <div id="last-updated">Loading last update time...</div>
+    <div id="last-updated" class="last-modified">Loading last update time...</div>
     <!-- Verify Button -->
-    <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
+    <button onclick="verifyLastUpdatedTime()">
         Verify Last Modified Time
     </button>
+    <style>
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }   
+    </style>
+    
+    <style>
+        .last-modified {
+            font-family: monospace;
+            color: #004080; 
+            font-size: 18px;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            background-color: #e6f2ff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
     <script>
         async function getLastUpdatedTime() {
             const username = "FEPSFY6873602";
@@ -218,7 +277,19 @@
     <!-- ////////////////////////////// Word count function ////////////////////////////// -->
     <!-- //////////////////////////////////////////////////////////////////////////////// -->
     <!-- Placeholder for total word count -->
-    <p id="totalWordCount"></p>
+    <p id="totalWordCount" class="totalWordCount"></p>
+
+    <style>
+        .totalWordCount {
+            font-family: monospace;
+            color: #004080; 
+            font-size: 18px;
+            text-align: left;
+            margin: 20px 0;
+            padding: 10px;            
+        }
+    </style>
+
     <hr>
     <script>
         // Function to calculate and display word count for a specified section
