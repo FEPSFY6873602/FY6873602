@@ -116,7 +116,7 @@
 
                         <br></br>
 
-                        The Java Virtual Machine (JVM) employs a variety of garbage collection algorithms, including generational garbage collection, reference counting, and mark-and-sweep (Jones, Hosking, and Moss, 2012). Generational garbage collection, for example, divides objects into generations based on their age, which allows the system to collect short-lived objects more efficiently. Java's garbage collection process prevents issues like dangling pointers and memory leaks that can occur in languages with manual memory management. Furthermore, modern garbage collectors like Garbage-First (G1), Shenandoah, and ZGC have been developed to minimise performance trade-offs. These collectors aim to reduce the latency caused by garbage collection pauses, known as “stop-the-world” events, by collecting memory in parallel or incrementally (Beronić et al., 2022).
+                        Boehm and Weiser (1988) emphasised that garbage collection in uncooperative environments requires sophisticated algorithms to ensure efficiency and stability, a principle exemplified by Java's approach. The Java Virtual Machine (JVM) employs a variety of garbage collection algorithms, including generational garbage collection, reference counting, and mark-and-sweep (Jones, Hosking, and Moss, 2012). Generational garbage collection, for example, divides objects into generations based on their age, which allows the system to collect short-lived objects more efficiently. Java's garbage collection process prevents issues like dangling pointers and memory leaks that can occur in languages with manual memory management. Furthermore, modern garbage collectors like Garbage-First (G1), Shenandoah, and ZGC have been developed to minimise performance trade-offs. These collectors aim to reduce the latency caused by garbage collection pauses, known as “stop-the-world” events, by collecting memory in parallel or incrementally (Beronić et al., 2022). Shahriyar et al. (2012) argues that a hybrid approach such as combining reference counting and garbage collection, might offer more balanced solutions in certain scenarios.
                         
                         <br></br>
 
@@ -166,7 +166,7 @@
         <p>
             <div id="References_Text" class="flex-container">
                 <div class="flex-item">
-                    <a href="https://research.google/pubs/garbage-collection-in-an-uncooperative-environment/">Boehm, H.-J. and Weiser, M. (1988) ‘Garbage Collection in an Uncooperative Environment’, Software: Practice and Experience, 18(9), pp. 807–820.</a>
+                    <a href="https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=6434aa10f3745dcf959cfca9c379aae120396724">Boehm, H.-J. and Weiser, M. (1988) ‘Garbage Collection in an Uncooperative Environment’, Software: Practice and Experience, 18(9), pp. 807–820.</a>
                 </div>
                 <br>
                 <div class="flex-item">
