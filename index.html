@@ -111,7 +111,7 @@
         <p>
             <div id="Analysis_and_Discussion_Text" style="display: flex; flex-wrap: wrap;">
                 <div style="flex: 1">
-                    <h4>1. Memory Management in Java</h4>
+                    <h4>Memory Management in Java</h4>
                     <p>Java’s memory management system is designed to be automatic, offering a high level of abstraction that shields developers from the complexity of manual memory handling. The cornerstone of Java’s memory management is its garbage collection (GC) mechanism, which automatically reclaims memory occupied by objects that are no longer in use. Garbage collection works by identifying objects that are no longer reachable by any part of the program and removing them, thereby freeing up memory for reuse.
 
                         <br></br>
@@ -125,7 +125,7 @@
                         <br></br>
                     </p>
 
-                    <h4>2. Memory Management in C++</h4>
+                    <h4>Memory Management in C++</h4>
                     <p>In contrast to Java, C++ adopts a manual approach to memory management. Developers are directly responsible for allocating and deallocating memory, typically using operators like new and delete. This gives C++ programmers fine-grained control over memory usage, allowing them to optimise performance and manage resources based on the specific needs of their applications. For example, developers can allocate memory only when it is needed, deallocate it immediately after use, and reuse memory in ways that might be impossible with Java’s automatic garbage collection.
 
                         <br></br>
@@ -139,7 +139,7 @@
                         <br></br>
                     </p>
 
-                    <h4>3. Comparative Performance</h4>
+                    <h4>Conclusion</h4>
                     <p>When comparing Java and C++, several trade-offs emerge. Java’s garbage collection system offers significant advantages in terms of developer productivity and ease of use. The automatic memory management system helps prevent common issues such as memory leaks and dangling pointers, reducing the likelihood of bugs and improving software reliability. However, this ease of use comes at the cost of performance. Garbage collection can introduce pauses in the application’s execution, leading to latency that can be particularly problematic in time-sensitive applications. Furthermore, the JVM’s abstraction of hardware resources results in lower performance compared to C++, which can interact more directly with the underlying hardware (Henriques and Bernardino, 2018).
                         
 
@@ -150,16 +150,13 @@
                         <br></br>
 
                         The decision between Java and C++ depends largely on the requirements of the specific application. For applications where development speed, safety, and robustness are paramount—such as enterprise software, web applications, or mobile apps—Java is often the preferred choice. Its automatic garbage collection and higher-level abstractions make it easier for developers to build reliable software quickly. Conversely, for performance-critical systems such as embedded devices, high-performance games, or real-time simulations, C++ is often favoured for its ability to optimise memory usage and processing speed, despite the added complexity.
-
-                        <br></br>
-                    </p>
-
-                    <h4>Conclusion</h4>
-                    <p>
-                        The efficiency of memory management in Java and C++ reflects their core design philosophies. Java’s automatic garbage collection system provides simplicity and safety, helping to prevent common memory issues such as leaks and dangling pointers. However, this ease of use comes with performance trade-offs, particularly with respect to garbage collection pauses and higher overall memory consumption. C++, by contrast, offers fine-grained control over memory management, enabling developers to optimise memory usage and minimise latency. However, this control also comes with risks, as improper memory management can lead to severe issues such as memory leaks or crashes. Understanding the trade-offs between the two systems is essential for choosing the right language based on the specific needs of the application.
                     </p>
                 </div>
             </div>
+        </p>
+
+        <p>
+            Click <a href="https://github.com/C0drMan0o0o/Garbage-Collector">here</a> to view an example of a simple Garbage Collector (Single Threaded Applications only) implemented in C++
         </p>
         
         <h3 id="References">References</h3>
@@ -187,10 +184,6 @@
                 <br>
                 <div class="flex-item">
                     <a href="https://aisel.aisnet.org/cgi/viewcontent.cgi?article=1009&context=capsi2018">Henriques, L. and Bernardino, J. (2018) ‘Performance of Memory Deallocation in C++, C# and Java’, CAPSI 2018 Proceedings.</a>
-                </div>
-                <br>
-                <div class="flex-item">
-                    <a href="https://github.com/C0drMan0o0o/Garbage-Collector">Example of a Simple Mark and Sweep Garbage Collector Implemented in C++ (Single Threaded Application)</a>
                 </div>
             </div>
         </p>
